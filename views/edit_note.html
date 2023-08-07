@@ -1,0 +1,35 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="note-editor">
+  <div class="panel panel-default note-editor__panel">
+    <div class="panel-heading note-editor__header">
+      <h1 class="panel-title note-editor__panel-title">
+        <span>Edit Your Note</span>
+      </h1>
+    </div>
+
+    <form method="POST" action="/note/{{noteId}}/edit/">
+
+      <div class="panel-body note-editor__panel-body">
+        <div class="form-group">
+          {{form.fields.subject.toHTML()|safe}}
+        </div>
+        <div class="form-group">
+          {{form.fields.detail.toHTML()|safe}}
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <div class="note-editor__flex-container">
+          <a class="btn btn-sm note-editor__button" href="/note/{{noteId}}/detail/">Cancel </a>
+          <button class="btn btn-sm note-editor__button" type="submit">Save Note</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
